@@ -1,0 +1,9 @@
+flowchart TD
+    A[Otworz projekt] --> B[Interpreter Node.js]
+    B --> C[Uruchom plik]
+    C --> D{Wynik}
+    D -- blad konfiguracji --> E[Sprawdz PATH i ustawienia IDE]
+    D -- blad kodu --> F[Sprawdz komunikat lintera]
+    D -- poprawny --> G[Formatter]
+    G --> H[Linter]
+    H --> I[Opis wyniku w README]

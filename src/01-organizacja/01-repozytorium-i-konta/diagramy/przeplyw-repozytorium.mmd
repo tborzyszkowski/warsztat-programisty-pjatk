@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant S as Student
+    participant R as Repozytorium
+    participant P as Reviewer
+    S->>R: clone
+    S->>R: branch
+    S->>R: commit
+    S->>R: push
+    S->>P: PR lub MR
+    P-->>S: feedback
+    S->>R: poprawki
