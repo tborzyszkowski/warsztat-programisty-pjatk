@@ -5,10 +5,19 @@
 Student potrafi ułożyć małą pracę tak, aby inna osoba mogła ją znaleźć, uruchomić i ocenić
 bez rozmowy na żywo. Struktura katalogów jest częścią jakości, a nie dekoracją.
 
-## Proponowana struktura repozytorium kursowego
+## Dwa repozytoria: kursowe i studenta
+
+Repozytorium kursowe zawiera materiały do zajęć. Student korzysta z niego jako źródła
+instrukcji i przykładów, ale nie oddaje do niego swoich prac.
+
+Każdy student tworzy własne repozytorium na GitHubie lub GitLabie. To w nim przechowuje
+rozwiązania, historię commitów i README potrzebne do oceny. Repozytorium może być publiczne
+albo prywatne, zgodnie z ustaleniami prowadzącego.
+
+## Proponowana struktura własnego repozytorium
 
 ```text
-repozytorium-kursowe/
+repozytorium-studenta/
 |-- README.md
 |-- src/
 |   |-- 01-organizacja/
@@ -25,8 +34,8 @@ repozytorium-kursowe/
 `-- .gitignore
 ```
 
-W tym repozytorium materiały z pierwszych zajęć są w [katalogu `src/01-organizacja`](../README.md).
-Nazwy powinny być krótkie, numerowane i zrozumiałe bez otwierania pliku.
+Materiały z pierwszych zajęć są w [katalogu `src/01-organizacja`](../README.md) repozytorium
+kursowego. Własne repozytorium powinno mieć krótkie, numerowane i zrozumiałe nazwy katalogów.
 
 ## Co powinien zawierać katalog zadania
 
@@ -68,15 +77,17 @@ Instrukcja powinna zawierać konkretne polecenia, ale nie powinna zakładać, ż
 lokalną konfigurację autora. Jeśli wymagane jest ustawienie zmiennej środowiskowej, trzeba
 podać jej nazwę i opisać, skąd legalnie uzyskać wartość.
 
-## Zasady oddawania prac
+## Zasady oddawania prac z własnego repozytorium
 
-1. Oddaj link do konkretnej gałęzi, commitu lub PR/MR, a nie tylko link do profilu.
-2. Opisz, co zostało zrobione i czego nie udało się zrobić.
-3. Dodaj instrukcję uruchomienia od czystego katalogu.
-4. Wymień wykonane kontrole i ich wyniki.
-5. Odpowiedz na pytania z treści zadania w README.
-6. Usuń pliki generowane, logi i dane lokalne, jeśli nie są częścią zadania.
-7. Nie poprawiaj historii przez usuwanie cudzych commitów.
+1. Utwórz własne repozytorium na GitHubie lub GitLabie i nadaj mu nazwę związaną z kursem.
+2. Oddaj link do własnego repozytorium oraz, jeśli praca jest na osobnej gałęzi, link do tej gałęzi.
+3. W opisie oddania wskaż commit lub tag, który należy ocenić. PR/MR do repozytorium kursowego nie jest wymagany.
+4. Opisz, co zostało zrobione i czego nie udało się zrobić.
+5. Dodaj instrukcję uruchomienia od czystego katalogu.
+6. Wymień wykonane kontrole i ich wyniki.
+7. Odpowiedz na pytania z treści zadania w README.
+8. Usuń pliki generowane, logi i dane lokalne, jeśli nie są częścią zadania.
+9. Nie poprawiaj historii przez usuwanie cudzych commitów.
 
 ## Checklista jakości przed oddaniem
 
@@ -108,7 +119,7 @@ podać jej nazwę i opisać, skąd legalnie uzyskać wartość.
 
 ## Zadanie dla studenta
 
-Przygotuj katalog `zadania/01-checklista` z:
+Utwórz w swoim repozytorium katalog `zadania/01-checklista` z:
 
 - plikiem `README.md` według szablonu powyżej,
 - jednym plikiem `wynik.txt` zawierającym przykładowy rezultat,
@@ -117,6 +128,10 @@ Przygotuj katalog `zadania/01-checklista` z:
 
 Następnie wykonaj lokalnie instrukcję z README osoby siedzącej obok. Nie udzielaj jej
 ustnych wyjaśnień, dopóki nie odnotuje pierwszego miejsca, w którym utknęła.
+
+Utwórz repozytorium `warsztat-programisty-01` na GitHubie lub GitLabie, dodaj do niego
+przygotowany katalog, wykonaj commit i wypchnij zmiany. Do oddania przekaż link do własnego
+repozytorium oraz identyfikator commitu. Nie twórz PR/MR do repozytorium kursowego.
 
 ### Rozwiązanie i wyjaśnienie
 
@@ -162,7 +177,7 @@ flowchart TD
     C --> D[Uruchomienie]
     D --> E[Przypadki kontroli]
     E --> F[Checklista]
-    F --> G[Link do oddania]
+    F --> G[Link do własnego repozytorium]
 ```
 
 Źródło diagramu: [checklista oddania](diagramy/checklista-oddania.mmd).

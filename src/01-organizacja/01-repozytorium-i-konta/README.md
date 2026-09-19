@@ -1,13 +1,17 @@
-# 01. Repozytorium kursowe i wymagane konta
+# 01. Repozytorium kursowe, własne repozytorium i wymagane konta
 
 ## Cel
 
-Po wykonaniu tematu student potrafi wyjaśnić, gdzie przechowywany jest kod, jak nadać sobie
-dostęp do pracy i jak przekazać zmianę innym osobom bez wysyłania plików jako załączników.
+Po wykonaniu tematu student potrafi wyjaśnić, czym różni się repozytorium kursowe od własnego
+repozytorium, jak utworzyć miejsce na swoje rozwiązania i jak udostępnić je bez wysyłania
+plików jako załączników.
 
 ## Pojęcia potrzebne na starcie
 
 - **Repozytorium** - katalog z plikami projektu oraz historia zmian.
+- **Repozytorium kursowe** - miejsce, w którym prowadzący publikuje materiały i instrukcje.
+- **Własne repozytorium** - projekt studenta na GitHubie lub GitLabie, do którego student
+    dodaje rozwiązania i link do oddania.
 - **Remote** - adres zdalnego repozytorium, np. na GitHubie albo GitLabie.
 - **Branch (gałąź)** - osobny strumień zmian, na którym można pracować bez niszczenia wersji głównej.
 - **Commit** - opisany punkt w historii zmian.
@@ -17,13 +21,13 @@ Nie trzeba zapamiętywać wszystkich komend. Trzeba rozumieć, jaki rezultat ma 
 
 ## Wymagane konta
 
-1. **GitHub** - konto do pracy z repozytorium kursowym, jeśli grupa korzysta z GitHuba.
-2. **GitLab** - konto do pracy z repozytorium kursowym, jeśli grupa korzysta z GitLaba.
-3. **Konto uczelniane** - konto, które może być potrzebne do zaproszenia do prywatnej grupy lub projektu.
+1. **GitHub** - konto, na którym student może utworzyć własne repozytorium.
+2. **GitLab** - konto, na którym student może utworzyć własne repozytorium.
+3. **Konto uczelniane** - konto, które może być potrzebne do dostępu do materiałów lub usług uczelni.
 
-Prowadzący powinien przed zajęciami podać, czy grupa pracuje na jednej platformie, czy na obu.
-Student nie powinien zakładać drugiego konta tylko po to, aby ominąć problem z dostępem.
-Najpierw należy sprawdzić zaproszenia, adres e-mail i ustawienia prywatności.
+Prowadzący powinien przed zajęciami podać, czy grupa korzysta z GitHuba, GitLaba, czy obu
+platform. Student nie powinien zakładać drugiego konta tylko po to, aby ominąć problem z
+dostępem. Najpierw należy sprawdzić adres e-mail i ustawienia prywatności.
 
 Oficjalne instrukcje:
 
@@ -34,12 +38,13 @@ Oficjalne instrukcje:
 
 ## Pierwszy przepływ pracy
 
-Przykładowe polecenia należy wykonywać w terminalu otwartym w katalogu, w którym ma powstać
-kopia repozytorium. Nazwa gałęzi powinna opisywać zadanie, a nie osobę.
+Przykładowe polecenia dotyczą własnego repozytorium studenta. Najpierw utwórz puste
+repozytorium na GitHubie lub GitLabie, a następnie sklonuj je do lokalnego katalogu.
+Nazwa gałęzi powinna opisywać zadanie, a nie osobę.
 
 ```text
-git clone ADRES_REPOZYTORIUM
-cd NAZWA_REPOZYTORIUM
+git clone ADRES_WLASNEGO_REPOZYTORIUM
+cd NAZWA_WLASNEGO_REPOZYTORIUM
 git switch -c zadanie/01-pierwszy-commit
 # utwórz lub zmień plik
  git status
@@ -70,8 +75,8 @@ Poprawna wersja to `git status` bez dodatkowej spacji na początku wiersza.
 
 ## Zadanie dla studenta
 
-1. Przyjmij zaproszenie do repozytorium kursowego.
-2. Sklonuj repozytorium do katalogu na komputerze.
+1. Utwórz własne repozytorium na GitHubie lub GitLabie.
+2. Sklonuj własne repozytorium do katalogu na komputerze.
 3. Utwórz gałąź `zadanie/01-profil`.
 4. Dodaj plik `profil.md` z imieniem lub pseudonimem, zainteresowaniem technicznym i jednym celem na kurs.
 5. Wykonaj `git status`, zapisz wynik w notatkach, a potem utwórz commit i wypchnij gałąź.
@@ -96,9 +101,9 @@ Nie oceniamy treści zainteresowania. Oceniamy, czy student potrafi przejść ca
 dostęp -> kopia lokalna -> gałąź -> zmiana -> kontrola -> commit -> push. Polecenie `git status`
 przed commitem ma pokazać nowy plik; po poprawnym commicie nie powinno pozostać nic niezatwierdzone.
 
-## Checklista oddania
+## Checklista oddania z własnego repozytorium
 
-- [ ] Repozytorium otwiera się z własnego konta.
+- [ ] Repozytorium znajduje się na moim koncie GitHub lub GitLab.
 - [ ] Gałąź nie jest `main` lub `master`.
 - [ ] Commit ma opis zgodny z wykonaną zmianą.
 - [ ] Na zdalnej platformie widać gałąź i plik.
@@ -109,12 +114,12 @@ przed commitem ma pokazać nowy plik; po poprawnym commicie nie powinno pozosta�
 ```mermaid
 sequenceDiagram
     participant S as Student
-    participant R as Repozytorium
+    participant R as Własne repozytorium studenta
     participant P as Osoba sprawdzająca
     S->>R: clone
     S->>R: branch i commit
     S->>R: push
-    S->>P: link do gałęzi lub PR/MR
+    S->>P: link do repozytorium i commitu
     P-->>S: uwagi i decyzja
     S->>R: poprawka na tej samej gałęzi
 ```
