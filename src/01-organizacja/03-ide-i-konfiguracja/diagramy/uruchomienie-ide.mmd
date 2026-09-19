@@ -1,9 +1,12 @@
 flowchart TD
-    A[Otwórz projekt] --> B[Interpreter Node.js]
-    B --> C[Uruchom plik]
-    C --> D{Wynik}
-    D -- błąd konfiguracji --> E[Sprawdź PATH i ustawienia IDE]
-    D -- błąd kodu --> F[Sprawdź komunikat lintera]
-    D -- poprawny --> G[Formatter]
-    G --> H[Linter]
-    H --> I[Opis wyniku w README]
+    A[Otwórz katalog projektu] --> B[Sprawdź Node.js]
+    B --> C{node --version działa?}
+    C -- nie --> D[Zainstaluj Node.js LTS]
+    D --> B
+    C -- tak --> E[Uruchom node przyklad.js]
+    E --> F{Wynik 7 + 5 = 12?}
+    F -- nie --> G[Sprawdź katalog, plik i konfigurację]
+    G --> E
+    F -- tak --> H[Formatter]
+    H --> I[Linter]
+    I --> J[Zapisz konfigurację i wynik]
