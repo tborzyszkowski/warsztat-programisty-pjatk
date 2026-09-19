@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant S as Student
+    participant I as IDE
+    participant P as Program
+    S->>I: ustaw breakpoint
+    S->>I: uruchom Debug
+    I->>P: wykonaj kod
+    P-->>I: zatrzymaj się na breakpointcie
+    S->>I: sprawdź Watch i Call Stack
+    S->>I: Step Over lub Step Into
+    I->>P: wykonaj kolejny krok
+    P-->>S: obserwacja wartości
+    S->>P: popraw kod i uruchom ponownie

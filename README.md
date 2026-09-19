@@ -12,10 +12,11 @@ Materiały do zajęć laboratoryjnych z przedmiotu Warsztat Programisty na PJATK
 ## Materiały
 
 - [Organizacja pracy programisty](src/01-organizacja/README.md)
+- [Debugowanie kodu i błędów wykonania](src/02-debug/README.md)
 
 Materiały są prowadzone zadaniowo: student najpierw wykonuje krótki krok praktyczny,
 a następnie porównuje wynik z rozwiązaniem i checklistą jakości. Przykłady są celowo
-proste i korzystają z JavaScriptu tylko tam, gdzie potrzebne jest uruchamialne ćwiczenie.
+proste i korzystają z JavaScriptu lub C# tylko tam, gdzie potrzebne jest uruchamialne ćwiczenie.
 
 ## Licencja
 

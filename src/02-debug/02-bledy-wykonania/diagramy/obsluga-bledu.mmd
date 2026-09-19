@@ -1,0 +1,9 @@
+flowchart TD
+    A[Wejście] --> B[Walidacja]
+    B -- poprawne --> C[Operacja]
+    B -- niepoprawne --> D[Wyjątek z kontekstem]
+    C --> E{Sukces?}
+    E -- tak --> F[Wynik]
+    E -- nie --> G[Log i obsługa]
+    D --> G
+    G --> H[Minimalny repro-case i issue]
