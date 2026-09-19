@@ -2,28 +2,28 @@
 
 ## Cel
 
-Po wykonaniu tematu student potrafi wyjasnic, gdzie przechowywany jest kod, jak nadac sobie
-dostep do pracy i jak przekazac zmiane innym osobom bez wysylania plikow jako zalacznikow.
+Po wykonaniu tematu student potrafi wyjaśnić, gdzie przechowywany jest kod, jak nadać sobie
+dostęp do pracy i jak przekazać zmianę innym osobom bez wysyłania plików jako załączników.
 
-## Pojecia potrzebne na starcie
+## Pojęcia potrzebne na starcie
 
 - **Repozytorium** - katalog z plikami projektu oraz historia zmian.
 - **Remote** - adres zdalnego repozytorium, np. na GitHubie albo GitLabie.
-- **Branch (galaz)** - osobny strumien zmian, na ktorym mozna pracowac bez niszczenia wersji glownej.
+- **Branch (gałąź)** - osobny strumień zmian, na którym można pracować bez niszczenia wersji głównej.
 - **Commit** - opisany punkt w historii zmian.
-- **Pull request / merge request** - prosba o przejrzenie i wlaczenie zmian.
+- **Pull request / merge request** - prośba o przejrzenie i włączenie zmian.
 
-Nie trzeba zapamietywac wszystkich komend. Trzeba rozumiec, jaki rezultat ma miec kazdy krok.
+Nie trzeba zapamiętywać wszystkich komend. Trzeba rozumieć, jaki rezultat ma mieć każdy krok.
 
 ## Wymagane konta
 
-1. **GitHub** - konto do pracy z repozytorium kursowym, jesli grupa korzysta z GitHuba.
-2. **GitLab** - konto do pracy z repozytorium kursowym, jesli grupa korzysta z GitLaba.
-3. **Konto uczelniane** - konto, ktore moze byc potrzebne do zaproszenia do prywatnej grupy lub projektu.
+1. **GitHub** - konto do pracy z repozytorium kursowym, jeśli grupa korzysta z GitHuba.
+2. **GitLab** - konto do pracy z repozytorium kursowym, jeśli grupa korzysta z GitLaba.
+3. **Konto uczelniane** - konto, które może być potrzebne do zaproszenia do prywatnej grupy lub projektu.
 
-Prowadzacy powinien przed zajeciami podac, czy grupa pracuje na jednej platformie, czy na obu.
-Student nie powinien zakladac drugiego konta tylko po to, aby ominac problem z dostepem.
-Najpierw nalezy sprawdzic zaproszenia, adres e-mail i ustawienia prywatnosci.
+Prowadzący powinien przed zajęciami podać, czy grupa pracuje na jednej platformie, czy na obu.
+Student nie powinien zakładać drugiego konta tylko po to, aby ominąć problem z dostępem.
+Najpierw należy sprawdzić zaproszenia, adres e-mail i ustawienia prywatności.
 
 Oficjalne instrukcje:
 
@@ -32,54 +32,54 @@ Oficjalne instrukcje:
 - [GitLab: tworzenie projektu](https://docs.gitlab.com/ee/user/project/working_with_projects.html)
 - [GitLab: klonowanie repozytorium](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html)
 
-## Pierwszy przeplyw pracy
+## Pierwszy przepływ pracy
 
-Przykladowe polecenia nalezy wykonywac w terminalu otwartym w katalogu, w ktorym ma powstac
-kopia repozytorium. Nazwa galezi powinna opisywac zadanie, a nie osobe.
+Przykładowe polecenia należy wykonywać w terminalu otwartym w katalogu, w którym ma powstać
+kopia repozytorium. Nazwa gałęzi powinna opisywać zadanie, a nie osobę.
 
 ```text
 git clone ADRES_REPOZYTORIUM
 cd NAZWA_REPOZYTORIUM
 git switch -c zadanie/01-pierwszy-commit
-# utworz lub zmien plik
+# utwórz lub zmień plik
  git status
 git add README.md
 git commit -m "Dodaj opis pierwszego zadania"
 git push -u origin zadanie/01-pierwszy-commit
 ```
 
-Spacja przed `git status` w powyzszym bloku jest celowo pokazana jako blad do znalezienia.
-Poprawna wersja to `git status` bez dodatkowej spacji na poczatku wiersza.
+Spacja przed `git status` w powyższym bloku jest celowo pokazana jako błąd do znalezienia.
+Poprawna wersja to `git status` bez dodatkowej spacji na początku wiersza.
 
-### Co sprawdzic po kazdym kroku
+### Co sprawdzić po każdym kroku
 
 | Krok | Pytanie kontrolne |
 | --- | --- |
-| clone | Czy katalog projektu pojawil sie lokalnie? |
-| branch | Czy nazwa galezi opisuje konkretne zadanie? |
-| status | Czy wiem, ktore pliki sa zmienione? |
-| commit | Czy komunikat mowi, co sie zmienilo? |
+| clone | Czy katalog projektu pojawił się lokalnie? |
+| branch | Czy nazwa gałęzi opisuje konkretne zadanie? |
+| status | Czy wiem, które pliki są zmienione? |
+| commit | Czy komunikat mówi, co się zmieniło? |
 | push | Czy zmiana jest widoczna na platformie? |
 
-## Zasady bezpieczenstwa
+## Zasady bezpieczeństwa
 
-- Nie umieszczaj w repozytorium hasel, kluczy API, tokenow, plikow `.env` ani danych osobowych.
-- Nie uzywaj cudzego konta ani nie udostepniaj swojego hasla.
-- Sprawdz adres remote przed wyslaniem zmian.
-- Jesli repozytorium jest prywatne, nie zmieniaj jego widocznosci bez uzgodnienia z prowadzacym.
+- Nie umieszczaj w repozytorium haseł, kluczy API, tokenów, plików `.env` ani danych osobowych.
+- Nie używaj cudzego konta ani nie udostępniaj swojego hasła.
+- Sprawdź adres remote przed wysłaniem zmian.
+- Jeśli repozytorium jest prywatne, nie zmieniaj jego widoczności bez uzgodnienia z prowadzącym.
 
 ## Zadanie dla studenta
 
 1. Przyjmij zaproszenie do repozytorium kursowego.
 2. Sklonuj repozytorium do katalogu na komputerze.
-3. Utworz galaz `zadanie/01-profil`.
+3. Utwórz gałąź `zadanie/01-profil`.
 4. Dodaj plik `profil.md` z imieniem lub pseudonimem, zainteresowaniem technicznym i jednym celem na kurs.
-5. Wykonaj `git status`, zapisz wynik w notatkach, a potem utworz commit i wypchnij galaz.
-6. W opisie oddania podaj: nazwe galezi, skrot commitu i informacje, jak usunales dane wrazliwe.
+5. Wykonaj `git status`, zapisz wynik w notatkach, a potem utwórz commit i wypchnij gałąź.
+6. W opisie oddania podaj: nazwę gałęzi, skrót commitu i informację, jak usunąłeś dane wrażliwe.
 
-### Rozwiazanie i wyjasnienie
+### Rozwiązanie i wyjaśnienie
 
-Przykladowy rezultat powinien wygladac tak:
+Przykładowy rezultat powinien wyglądać tak:
 
 ```text
 warsztat-programisty/
@@ -87,22 +87,22 @@ warsztat-programisty/
 |-- profil.md
 `-- ...
 
-galaz: zadanie/01-profil
+gałąź: zadanie/01-profil
 commit: Dodaj profil studenta
 status po commicie: czysty
 ```
 
-Nie oceniamy tresci zainteresowania. Oceniamy, czy student potrafi przejsc caly przeplyw:
-dostep -> kopia lokalna -> galaz -> zmiana -> kontrola -> commit -> push. Polecenie `git status`
-przed commitem ma pokazac nowy plik; po poprawnym commicie nie powinno pozostac nic niezatwierdzone.
+Nie oceniamy treści zainteresowania. Oceniamy, czy student potrafi przejść cały przepływ:
+dostęp -> kopia lokalna -> gałąź -> zmiana -> kontrola -> commit -> push. Polecenie `git status`
+przed commitem ma pokazać nowy plik; po poprawnym commicie nie powinno pozostać nic niezatwierdzone.
 
 ## Checklista oddania
 
-- [ ] Repozytorium otwiera sie z wlasnego konta.
-- [ ] Galaz nie jest `main` lub `master`.
-- [ ] Commit ma opis zgodny z wykonana zmiana.
-- [ ] Na zdalnej platformie widac galaz i plik.
-- [ ] W repozytorium nie ma sekretow ani plikow prywatnych.
+- [ ] Repozytorium otwiera się z własnego konta.
+- [ ] Gałąź nie jest `main` lub `master`.
+- [ ] Commit ma opis zgodny z wykonaną zmianą.
+- [ ] Na zdalnej platformie widać gałąź i plik.
+- [ ] W repozytorium nie ma sekretów ani plików prywatnych.
 
 ## Diagram
 
@@ -110,13 +110,13 @@ przed commitem ma pokazac nowy plik; po poprawnym commicie nie powinno pozostac 
 sequenceDiagram
     participant S as Student
     participant R as Repozytorium
-    participant P as Osoba sprawdzajaca
+    participant P as Osoba sprawdzająca
     S->>R: clone
     S->>R: branch i commit
     S->>R: push
-    S->>P: link do galezi lub PR/MR
+    S->>P: link do gałęzi lub PR/MR
     P-->>S: uwagi i decyzja
-    S->>R: poprawka na tej samej galezi
+    S->>R: poprawka na tej samej gałęzi
 ```
 
-Zrodlo diagramu: [przeplyw repozytorium](diagramy/przeplyw-repozytorium.mmd).
+Źródło diagramu: [przepływ repozytorium](diagramy/przeplyw-repozytorium.mmd).

@@ -28,4 +28,4 @@ assert.equal(czyPierwsza(2), true);
 assert.equal(czyPierwsza(1), false);
 assert.equal(czyPierwsza(21), false);
 
-console.log("Wszystkie przykladowe testy zakonczyly sie powodzeniem.");
+console.log("Wszystkie przykładowe testy zakończyły się powodzeniem.");

@@ -1,9 +1,9 @@
-# 02. Struktura materialow i zasady oddawania
+# 02. Struktura materiałów i zasady oddawania
 
 ## Cel
 
-Student potrafi ulozyc mala prace tak, aby inna osoba mogla ja znalezc, uruchomic i ocenic
-bez rozmowy na zywo. Struktura katalogow jest czescia jakosci, a nie dekoracja.
+Student potrafi ułożyć małą pracę tak, aby inna osoba mogła ją znaleźć, uruchomić i ocenić
+bez rozmowy na żywo. Struktura katalogów jest częścią jakości, a nie dekoracją.
 
 ## Proponowana struktura repozytorium kursowego
 
@@ -25,21 +25,21 @@ repozytorium-kursowe/
 `-- .gitignore
 ```
 
-W tym repozytorium materialy z pierwszych zajec sa w [katalogu `src/01-organizacja`](../README.md).
-Nazwy powinny byc krotkie, numerowane i zrozumiale bez otwierania pliku.
+W tym repozytorium materiały z pierwszych zajęć są w [katalogu `src/01-organizacja`](../README.md).
+Nazwy powinny być krótkie, numerowane i zrozumiałe bez otwierania pliku.
 
-## Co powinien zawierac katalog zadania
+## Co powinien zawierać katalog zadania
 
 | Element | Odpowiada na pytanie |
 | --- | --- |
-| `README.md` | Co bylo celem i jak uruchomic rezultat? |
+| `README.md` | Co było celem i jak uruchomić rezultat? |
 | `src/` lub pliki z kodem | Gdzie jest implementacja? |
-| `tests/` | Jak sprawdzono dzialanie? |
-| `diagramy/` | Jaki przeplyw lub model warto zobaczyc? |
+| `tests/` | Jak sprawdzono działanie? |
+| `diagramy/` | Jaki przepływ lub model warto zobaczyć? |
 | `.gitignore` | Czego nie dodajemy do historii? |
 
-Nie kazde zadanie musi miec wszystkie katalogi. Nie tworzymy pustych folderow tylko dlatego,
-je widzielismy w szablonie. Struktura ma pomagac w nawigacji.
+Nie każde zadanie musi mieć wszystkie katalogi. Nie tworzymy pustych folderów tylko dlatego,
+że widzieliśmy je w szablonie. Struktura ma pomagać w nawigacji.
 
 ## Minimalny README pracy
 
@@ -47,14 +47,14 @@ je widzielismy w szablonie. Struktura ma pomagac w nawigacji.
 # Nazwa zadania
 
 ## Cel
-Jedno zdanie opisujace rezultat.
+Jedno zdanie opisujące rezultat.
 
 ## Uruchomienie
-1. Zainstaluj wymagane narzedzie.
+1. Zainstaluj wymagane narzędzie.
 2. Uruchom polecenie ...
 
 ## Sprawdzenie
-- przypadek zwykly: ...
+- przypadek zwykły: ...
 - przypadek brzegowy: ...
 - oczekiwany rezultat: ...
 
@@ -64,63 +64,63 @@ Jedno zdanie opisujace rezultat.
 - [x] testy lub opis kontroli
 ```
 
-Instrukcja powinna zawierac konkretne polecenia, ale nie powinna zakladac, ze odbiorca zna
-lokalna konfiguracje autora. Jesli wymagane jest ustawienie zmiennej srodowiskowej, trzeba
-podac jej nazwe i opisac, skad legalnie uzyskac wartosc.
+Instrukcja powinna zawierać konkretne polecenia, ale nie powinna zakładać, że odbiorca zna
+lokalną konfigurację autora. Jeśli wymagane jest ustawienie zmiennej środowiskowej, trzeba
+podać jej nazwę i opisać, skąd legalnie uzyskać wartość.
 
 ## Zasady oddawania prac
 
-1. Oddaj link do konkretnej galezi, commitu lub PR/MR, a nie tylko link do profilu.
-2. Opisz, co zostalo zrobione i czego nie udalo sie zrobic.
-3. Dodaj instrukcje uruchomienia od czystego katalogu.
-4. Wymien wykonane kontrole i ich wyniki.
-5. Odpowiedz na pytania z tresci zadania w README.
-6. Usun pliki generowane, logi i dane lokalne, jesli nie sa czescia zadania.
-7. Nie poprawiaj historii przez usuwanie cudzych commitow.
+1. Oddaj link do konkretnej gałęzi, commitu lub PR/MR, a nie tylko link do profilu.
+2. Opisz, co zostało zrobione i czego nie udało się zrobić.
+3. Dodaj instrukcję uruchomienia od czystego katalogu.
+4. Wymień wykonane kontrole i ich wyniki.
+5. Odpowiedz na pytania z treści zadania w README.
+6. Usuń pliki generowane, logi i dane lokalne, jeśli nie są częścią zadania.
+7. Nie poprawiaj historii przez usuwanie cudzych commitów.
 
-## Checklista jakosci przed oddaniem
+## Checklista jakości przed oddaniem
 
-### Tresc
+### Treść
 
-- [ ] Nazwa zadania i cel sa jasne.
-- [ ] README opisuje instalacje, uruchomienie i przykladowy wynik.
-- [ ] Uzyte pojecia sa wyjasnione przy pierwszym uzyciu.
+- [ ] Nazwa zadania i cel są jasne.
+- [ ] README opisuje instalację, uruchomienie i przykładowy wynik.
+- [ ] Użyte pojęcia są wyjaśnione przy pierwszym użyciu.
 
 ### Kod
 
 - [ ] Kod jest sformatowany zgodnie z ustaleniami grupy.
-- [ ] Nazwy zmiennych i funkcji opisuja ich role.
-- [ ] Nie ma zakomentowanego kodu, ktory udaje rozwiazanie.
-- [ ] Bledy danych wejsciowych sa obsluzone albo jawnie opisane.
+- [ ] Nazwy zmiennych i funkcji opisują ich role.
+- [ ] Nie ma zakomentowanego kodu, który udaje rozwiązanie.
+- [ ] Błędy danych wejściowych są obsłużone albo jawnie opisane.
 
 ### Weryfikacja
 
-- [ ] Uruchomilem przyklad z README.
-- [ ] Sprawdzilem przypadek zwykly i brzegowy.
+- [ ] Uruchomiłem przykład z README.
+- [ ] Sprawdziłem przypadek zwykły i brzegowy.
 - [ ] Wiem, co oznacza wynik kontroli.
-- [ ] `git status` pokazuje tylko pliki, ktore chce oddac.
+- [ ] `git status` pokazuje tylko pliki, które chcę oddać.
 
 ### Higiena repozytorium
 
-- [ ] Brak sekretow i danych osobowych.
-- [ ] Brak katalogow IDE i plikow tymczasowych.
-- [ ] Linki w README prowadza do istniejacych plikow.
+- [ ] Brak sekretów i danych osobowych.
+- [ ] Brak katalogów IDE i plików tymczasowych.
+- [ ] Linki w README prowadzą do istniejących plików.
 
 ## Zadanie dla studenta
 
 Przygotuj katalog `zadania/01-checklista` z:
 
-- plikiem `README.md` wedlug szablonu powyzej,
-- jednym plikiem `wynik.txt` zawierajacym przykladowy rezultat,
-- sekcja "Sprawdzenie" z trzema przypadkami,
-- checklista zaznaczona tylko w punktach, ktore rzeczywiscie wykonales.
+- plikiem `README.md` według szablonu powyżej,
+- jednym plikiem `wynik.txt` zawierającym przykładowy rezultat,
+- sekcją "Sprawdzenie" z trzema przypadkami,
+- checklistą zaznaczoną tylko w punktach, które rzeczywiście wykonałeś.
 
-Nastepnie wykonaj lokalnie instrukcje z README osoby siedzacej obok. Nie udzielaj jej
-ustnych wyjasnien, dopoki nie odnotuje pierwszego miejsca, w ktorym utknela.
+Następnie wykonaj lokalnie instrukcję z README osoby siedzącej obok. Nie udzielaj jej
+ustnych wyjaśnień, dopóki nie odnotuje pierwszego miejsca, w którym utknęła.
 
-### Rozwiazanie i wyjasnienie
+### Rozwiązanie i wyjaśnienie
 
-Przykladowy katalog:
+Przykładowy katalog:
 
 ```text
 zadania/01-checklista/
@@ -128,21 +128,21 @@ zadania/01-checklista/
 `-- wynik.txt
 ```
 
-Przykladowy plik `README.md`:
+Przykładowy plik `README.md`:
 
 ```markdown
 # Sprawdzenie temperatury
 
 ## Cel
-Pokazac wynik dla wartosci 20 stopni Celsjusza.
+Pokazać wynik dla wartości 20 stopni Celsjusza.
 
 ## Uruchomienie
-Otworz plik `wynik.txt` i porownaj go z sekcja "Sprawdzenie".
+Otwórz plik `wynik.txt` i porównaj go z sekcją "Sprawdzenie".
 
 ## Sprawdzenie
-- zwykly: 20 -> 20 stopni Celsjusza
+- zwykły: 20 -> 20 stopni Celsjusza
 - brzegowy: 0 -> 0 stopni Celsjusza
-- niepoprawny: brak wartosci -> przypadek opisany jako "brak danych"
+- niepoprawny: brak wartości -> przypadek opisany jako "brak danych"
 
 ## Zakres oddania
 - [x] opis celu
@@ -150,14 +150,14 @@ Otworz plik `wynik.txt` i porownaj go z sekcja "Sprawdzenie".
 - [x] trzy przypadki kontroli
 ```
 
-Rozwiazanie jest minimalne, ale kompletne: odbiorca wie, co ma sprawdzic, a autor nie udaje,
-ze test automatyczny istnieje, gdy wykonano tylko kontrole reczna.
+Rozwiązanie jest minimalne, ale kompletne: odbiorca wie, co ma sprawdzić, a autor nie udaje,
+że test automatyczny istnieje, gdy wykonano tylko kontrolę ręczną.
 
 ## Diagram
 
 ```mermaid
 flowchart TD
-    A[Tresc zadania] --> B[README i struktura]
+    A[Treść zadania] --> B[README i struktura]
     B --> C[Implementacja]
     C --> D[Uruchomienie]
     D --> E[Przypadki kontroli]
@@ -165,4 +165,4 @@ flowchart TD
     F --> G[Link do oddania]
 ```
 
-Zrodlo diagramu: [checklista oddania](diagramy/checklista-oddania.mmd).
+Źródło diagramu: [checklista oddania](diagramy/checklista-oddania.mmd).
