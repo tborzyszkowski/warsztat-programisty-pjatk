@@ -1,0 +1,15 @@
+stateDiagram-v2
+    [*] --> Draft
+    Draft --> Open: Ready for review
+    Open --> Review: reviewer
+    Review --> ChangesRequested: poprawki
+    ChangesRequested --> Review: push
+    Review --> Approved: approve
+    Open --> Checks: kontrola
+    Review --> Checks: kontrola
+    Checks --> Open: failed
+    Checks --> Merged: passed
+    Approved --> Merged: merge
+    Open --> Closed: close
+    Merged --> [*]
+    Closed --> [*]

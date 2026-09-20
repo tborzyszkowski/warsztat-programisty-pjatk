@@ -1,0 +1,12 @@
+flowchart TD
+    A[main] --> B[feature/zadanie]
+    B --> C[Commit 1]
+    C --> D[Commit 2]
+    A --> E[Nowy commit na main]
+    D --> F{Sposób integracji}
+    E --> F
+    F --> G[Merge: commit scalający]
+    F --> H[Rebase: historia liniowa]
+    G --> I[Konflikt?]
+    H --> I
+    I --> J[Status, edycja, add, kontynuuj]

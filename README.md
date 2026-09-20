@@ -13,6 +13,7 @@ Materiały do zajęć laboratoryjnych z przedmiotu Warsztat Programisty na PJATK
 
 - [Organizacja pracy programisty](src/01-organizacja/README.md)
 - [Debugowanie kodu i błędów wykonania](src/02-debug/README.md)
+- [Git: repozytoria, gałęzie i Pull Requesty](src/03-git/README.md)
 
 Materiały są prowadzone zadaniowo: student najpierw wykonuje krótki krok praktyczny,
 a następnie porównuje wynik z rozwiązaniem i checklistą jakości. Przykłady są celowo

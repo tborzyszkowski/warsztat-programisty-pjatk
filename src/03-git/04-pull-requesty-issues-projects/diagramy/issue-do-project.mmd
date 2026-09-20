@@ -1,0 +1,9 @@
+flowchart LR
+    A[Issue] --> B[Backlog]
+    B --> C[Ready]
+    C --> D[In progress]
+    D --> E[In review]
+    E --> F[Done]
+    D --> G[Branch i commit]
+    G --> H[Pull Request]
+    H --> E

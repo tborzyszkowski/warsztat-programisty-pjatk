@@ -1,0 +1,7 @@
+flowchart LR
+    A[Lokalny commit] -->|push| B[Remote]
+    B -->|fetch| C[origin/main]
+    C --> D[Porównanie historii]
+    D --> E[Merge lub rebase]
+    E --> F[Lokalna gałąź]
+    B -->|pull| E

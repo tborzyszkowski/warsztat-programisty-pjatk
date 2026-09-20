@@ -1,0 +1,6 @@
+flowchart LR
+    A[Working tree] -->|git add| B[Staging area]
+    B -->|git commit| C[Historia lokalna]
+    A -->|git diff| D[Zmiany niezatwierdzone]
+    B -->|git diff --staged| E[Zmiany przygotowane]
+    C -->|git log| F[Odczyt historii]

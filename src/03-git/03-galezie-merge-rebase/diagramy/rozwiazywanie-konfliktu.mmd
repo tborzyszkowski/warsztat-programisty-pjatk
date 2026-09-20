@@ -1,0 +1,13 @@
+flowchart TD
+    A[Git pokazuje CONFLICT] --> B[git status]
+    B --> C[Otwórz wskazany plik]
+    C --> D[Usuń znaczniki konfliktu]
+    D --> E[Połącz lub wybierz treść]
+    E --> F[git diff]
+    F --> G[git add plik]
+    G --> H{Merge czy rebase?}
+    H --> I[git commit]
+    H --> J[git rebase --continue]
+    I --> K[Kontrola i push]
+    J --> K
+    A --> L[Anuluj: merge --abort lub rebase --abort]

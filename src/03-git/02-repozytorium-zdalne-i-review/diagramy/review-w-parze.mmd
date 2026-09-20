@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant A as Osoba A
+    participant R as Repozytorium
+    participant B as Osoba B
+    A->>R: push zmiany
+    B->>R: fetch
+    B->>B: sprawdź diff i uruchomienie
+    B-->>A: komentarz: obserwacja, ryzyko, sugestia
+    A->>R: commit poprawki i push
+    B->>R: ponowna kontrola
