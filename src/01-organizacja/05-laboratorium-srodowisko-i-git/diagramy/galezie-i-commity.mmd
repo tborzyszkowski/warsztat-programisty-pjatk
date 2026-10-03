@@ -1,0 +1,13 @@
+flowchart LR
+    C0((C0<br/>aplikacja)) --> C1((C1<br/>README z GitHuba))
+    C1 --> C2((C2<br/>kontakt autora))
+    C1 --> C3((C3<br/>kontakt zespołu))
+    C2 --> M((M<br/>scalenie po rozwiązaniu konfliktu))
+    C3 --> M
+
+    LocalMain["Lokalna main"] --> C3
+    TrackingMain["Lokalna origin/main"] --> C3
+    RemoteMain["GitHub: main"] --> C3
+    LocalFeature["Lokalna feature/readme-contact"] --> M
+    TrackingFeature["Lokalna origin/feature/readme-contact"] --> M
+    RemoteFeature["GitHub: feature/readme-contact"] --> M

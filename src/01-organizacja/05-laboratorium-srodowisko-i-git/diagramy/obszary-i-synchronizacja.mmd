@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph Komputer["Komputer studenta"]
+        WT["Lokalny kod<br/>working tree"]
+        IDX["Staging area<br/>poczekalnia"]
+        subgraph Repo["Lokalne repozytorium .git"]
+            Commits["Commity i historia"]
+            Branches["Lokalne gałęzie<br/>main, feature/..."]
+            Tracking["Remote-tracking refs<br/>origin/main, origin/feature/..."]
+        end
+        WT -->|"git add"| IDX
+        IDX -->|"git commit"| Commits
+        Commits --- Branches
+        Branches -->|"git switch<br/>wczytuje pliki"| WT
+        Tracking -->|"merge / rebase<br/>integracja historii"| Branches
+    end
+    subgraph Serwer["Zdalne repozytorium na GitHubie"]
+        Remote["Zdalne gałęzie<br/>main, feature/..."]
+    end
+    Branches -->|"git push<br/>wysyła commity i gałąź"| Remote
+    Remote -->|"git fetch<br/>pobiera commity i aktualizuje refs"| Tracking
+    Remote -->|"git pull = fetch + integracja<br/>z bieżącą lokalną gałęzią"| Branches

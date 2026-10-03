@@ -38,6 +38,59 @@ git config --global user.email "adres@example.com"
 Nie wpisuj hasła ani tokenu do poleceń, plików projektu ani repozytorium. Uwierzytelniaj
 się przez przeglądarkę lub menedżer poświadczeń Git.
 
+## Cztery miejsca, których nie należy mylić
+
+W pracy z Gitem zmiany przechodzą przez kilka różnych miejsc:
+
+- **Lokalny kod (working tree)** to pliki projektu, które widzisz i edytujesz, np.
+  `Program.cs` i `README.md`. Mogą być zmienione, zanim zapiszesz je w historii.
+- **Staging area** to poczekalnia na wybrane zmiany. `git add` przygotowuje zawartość pliku
+  do następnego commita; nie wysyła jej do GitHuba.
+- **Lokalne repozytorium** to historia commitów i lokalne wskaźniki gałęzi przechowywane
+  w katalogu `.git`. `git commit` zapisuje przygotowaną migawkę w tej historii. Samo
+  utworzenie folderu projektu nie tworzy repozytorium — robi to `git init`.
+- **Zdalne repozytorium** to repozytorium na serwerze, np. GitHubie. `git remote add origin`
+  zapisuje adres serwera pod nazwą `origin`; dopiero `git push` wysyła commity i aktualizuje
+  zdalną gałąź.
+
+```mermaid
+flowchart LR
+    subgraph Komputer["Komputer studenta"]
+        WT["Lokalny kod<br/>working tree"]
+        IDX["Staging area<br/>poczekalnia"]
+        subgraph Repo["Lokalne repozytorium .git"]
+            Commits["Commity i historia"]
+            Branches["Lokalne gałęzie<br/>main, feature/..."]
+            Tracking["Remote-tracking refs<br/>origin/main, origin/feature/..."]
+        end
+        WT -->|"git add"| IDX
+        IDX -->|"git commit"| Commits
+        Commits --- Branches
+        Branches -->|"git switch<br/>wczytuje pliki"| WT
+        Tracking -->|"merge / rebase<br/>integracja historii"| Branches
+    end
+    subgraph Serwer["Zdalne repozytorium na GitHubie"]
+        Remote["Zdalne gałęzie<br/>main, feature/..."]
+    end
+    Branches -->|"git push<br/>wysyła commity i gałąź"| Remote
+    Remote -->|"git fetch<br/>pobiera commity i aktualizuje refs"| Tracking
+    Remote -->|"git pull = fetch + integracja<br/>z bieżącą lokalną gałęzią"| Branches
+```
+
+`origin/main` nie jest gałęzią na serwerze ani drugą lokalną gałęzią `main`. To lokalna
+referencja zapamiętująca stan zdalnej gałęzi `main` w chwili ostatniego pobrania lub
+wysłania. Dzięki temu można porównać własną gałąź z wersją znaną z GitHuba.
+
+| Polecenie | Co robi | Czego samo nie robi |
+| --- | --- | --- |
+| `git add README.md` | przygotowuje aktualną wersję pliku do commita | nie zapisuje commita i niczego nie wysyła |
+| `git commit -m "..."` | zapisuje staging area w lokalnej historii | nie publikuje zmian na GitHubie |
+| `git push` | wysyła lokalne commity i aktualizuje zdalną gałąź | nie łączy gałęzi z `main` ani nie tworzy automatycznie PR |
+| `git fetch origin` | pobiera commity i aktualizuje lokalne `origin/*` | nie zmienia bieżącej gałęzi ani plików working tree |
+| `git pull` | wykonuje fetch, a potem integruje zmiany z bieżącą gałęzią | nie jest tylko „sprawdzeniem” zmian; może zmienić historię i pliki |
+
+Źródło diagramu: [obszary i kierunki synchronizacji](diagramy/obszary-i-synchronizacja.mmd).
+
 ## Część 1: utwórz i uruchom projekt C#/.NET
 
 1. W terminalu przejdź do katalogu, w którym przechowujesz projekty. Utwórz aplikację
@@ -162,6 +215,42 @@ Na GitHubie utwórz Pull Request z `feature/readme-contact` do `main`. Przejrzyj
 **Files changed** i upewnij się, że PR pokazuje wyłącznie zamierzoną zmianę. Nie łącz jeszcze
 PR — najpierw wykonaj kolejną część, aby przećwiczyć konflikt. Push gałęzi nie łączy jej
 automatycznie z `main`.
+
+### Jak czytać gałęzie w tym ćwiczeniu
+
+Gałąź jest lekką nazwą wskazującą commit w historii, a nie osobnym katalogiem ani kopią
+całego repozytorium. `git switch -c feature/readme-contact` tworzy lokalną gałąź w miejscu
+bieżącego commita i przełącza na nią. Dopóki nie wykonasz commita, edytowane pliki są tylko
+w working tree/staging area. Po commicie przesuwa się wskaźnik bieżącej gałęzi; `main`
+pozostaje przy swoim commicie.
+
+Pierwszy `git push -u origin feature/readme-contact` tworzy lub aktualizuje gałąź o tej
+nazwie na GitHubie i ustawia śledzenie. Publikacja gałęzi nie oznacza połączenia jej
+z `main`. Pull Request porównuje gałąź źródłową z bazową i jest osobnym procesem przeglądu.
+
+```mermaid
+flowchart LR
+    C0((C0<br/>aplikacja)) --> C1((C1<br/>README z GitHuba))
+    C1 --> C2((C2<br/>kontakt autora))
+    C1 --> C3((C3<br/>kontakt zespołu))
+    C2 --> M((M<br/>scalenie po rozwiązaniu konfliktu))
+    C3 --> M
+
+    LocalMain["Lokalna main"] --> C3
+    TrackingMain["Lokalna origin/main"] --> C3
+    RemoteMain["GitHub: main"] --> C3
+    LocalFeature["Lokalna feature/readme-contact"] --> M
+    TrackingFeature["Lokalna origin/feature/readme-contact"] --> M
+    RemoteFeature["GitHub: feature/readme-contact"] --> M
+```
+
+W diagramie strzałki od nazw gałęzi wskazują commit, na który gałąź wskazuje. Po
+rozwiązaniu konfliktu lokalna `main`, `origin/main` i zdalna `main` wskazują `C3`.
+Lokalna gałąź zadaniowa oraz jej opublikowana wersja wskazują `M`, commit scalający, który
+zawiera zarówno zmianę autora, jak i zmianę zespołu. PR porównuje tę gałąź z `main`;
+dopiero jego zaakceptowanie i scalenie zmienia zdalną `main`.
+
+Źródło diagramu: [gałęzie i commity w ćwiczeniu](diagramy/galezie-i-commity.mmd).
 
 ## Część 4: kontrolowany konflikt i jego rozwiązanie
 
