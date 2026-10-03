@@ -351,6 +351,153 @@ połącz PR. `Merge commit` zachowuje strukturę scalenia, `squash` łączy zmia
 commit, a `rebase` przenosi commity na nowszą bazę. Wybierz strategię wymaganą przez
 prowadzącego lub ustawienia repozytorium.
 
+## Zadanie: projekt obliczeniowy w trzech IDE i GitHubie
+
+Przygotuj małą aplikację konsolową w C#, a następnie otwórz ten sam projekt kolejno
+w VS Code, Visual Studio i Riderze. W każdym IDE zbuduj i uruchom program oraz sprawdź
+działanie debuggera. Na koniec opublikuj projekt w osobnym repozytorium na GitHubie.
+Instrukcje instalacji IDE znajdują się w [sekcji o IDE](../03-ide-i-konfiguracja/README.md).
+
+Wykonaj to zadanie w nowym katalogu `IdeFunctionLab`, obok katalogu użytego w poprzednim
+laboratorium. Nie twórz projektu wewnątrz repozytorium kursowego ani istniejącej gałęzi
+`feature/readme-contact`.
+
+### 1. Utwórz projekt i funkcję
+
+W terminalu utwórz konsolowy projekt .NET:
+
+```text
+dotnet new console --name IdeFunctionLab
+cd IdeFunctionLab
+dotnet new gitignore
+```
+
+W `Program.cs` zastąp domyślny kod poniższą implementacją funkcji liniowej
+`f(x) = 2x + 3`:
+
+```csharp
+double x = 4;
+double result = Calculate(x);
+Console.WriteLine($"f({x}) = {result}");
+
+static double Calculate(double value)
+{
+    return 2 * value + 3;
+}
+```
+
+Zapisz plik. Oczekiwany wynik dla `x = 4` to `f(4) = 11`. Dodatkowo sprawdź `x = -2`:
+wynik powinien być `f(-2) = -1`. Przed oddaniem przywróć `x = 4`.
+
+### 2. Otwórz, zbuduj, uruchom i debuguj projekt w każdym IDE
+
+Korzystaj za każdym razem z tego samego katalogu `IdeFunctionLab`; nie twórz trzech kopii.
+Po zakończeniu pracy w danym IDE zamknij projekt przed otwarciem go w następnym.
+
+#### VS Code
+
+1. Uruchom VS Code i wybierz **File → Open Folder**, po czym otwórz `IdeFunctionLab`.
+   Upewnij się, że projekt wykrywa rozszerzenie C# Dev Kit.
+2. Otwórz `Program.cs`, sprawdź, czy kod funkcji został zapisany, i otwórz
+   **Terminal → New Terminal**.
+3. Zbuduj i uruchom projekt:
+
+   ```text
+   dotnet build
+   dotnet run
+   ```
+
+   Sprawdź wynik `f(4) = 11`.
+4. Ustaw breakpoint przy `return 2 * value + 3;` oraz drugi przy `Console.WriteLine`.
+   Otwórz **Run and Debug**, wybierz konfigurację C#/.NET, jeśli zostanie zaproponowana,
+   i uruchom debugowanie przez `F5`.
+5. Przy pierwszym breakpointcie sprawdź w **Variables**, że `value` wynosi `4`. Kontynuuj
+   wykonanie do drugiego breakpointu i sprawdź, że `result` wynosi `11`. Wznów program.
+
+#### Visual Studio
+
+1. Wybierz **Open a project or solution** i otwórz `IdeFunctionLab.csproj`.
+2. Otwórz `Program.cs` i sprawdź, czy edytujesz tę samą funkcję oraz zapisany plik.
+3. Zbuduj projekt przez **Build → Build Solution** (`Ctrl+Shift+B`), a następnie uruchom
+   bez debugowania przez **Debug → Start Without Debugging** (`Ctrl+F5`). Sprawdź wynik
+   `f(4) = 11`.
+4. Ustaw breakpointy przy `return 2 * value + 3;` i `Console.WriteLine`. Uruchom
+   debugowanie przez **Debug → Start Debugging** (`F5`).
+5. W oknie **Locals** sprawdź `value = 4` przy pierwszym breakpointcie, a następnie
+   `result = 11` przy drugim. Wznów program.
+
+#### JetBrains Rider
+
+1. Wybierz **File → Open** i otwórz `IdeFunctionLab.csproj`.
+2. Otwórz `Program.cs` i sprawdź, czy edytujesz tę samą funkcję oraz zapisany plik.
+3. Wybierz **Build → Build Solution**, a następnie **Run → Run** dla konfiguracji
+   `IdeFunctionLab`. Sprawdź wynik `f(4) = 11`.
+4. Ustaw breakpointy przy `return 2 * value + 3;` i `Console.WriteLine`. Uruchom
+   konfigurację przez **Run → Debug**.
+5. W oknie debuggera sprawdź `value = 4` przy pierwszym breakpointcie, a następnie
+   `result = 11` przy drugim. Wznów program.
+
+Jeżeli kompilacja lub wynik różnią się między IDE, nie poprawiaj osobnych kopii kodu —
+sprawdź zapis `Program.cs`, ścieżkę otwartego projektu i wybraną konfigurację. Po testach
+trzech IDE ponownie uruchom projekt z terminala przez `dotnet run`.
+
+### 3. Udokumentuj wynik i opublikuj go na GitHubie
+
+Utwórz w katalogu projektu `README.md` z krótką dokumentacją:
+
+```markdown
+# IdeFunctionLab
+
+## Cel
+Program oblicza funkcję f(x) = 2x + 3.
+
+## Uruchomienie
+Polecenie: `dotnet run`
+Przykład: dla x = 4 wynik to f(4) = 11.
+
+## Sprawdzenie w IDE
+- VS Code: wynik kompilacji, uruchomienia i obserwacja debuggera.
+- Visual Studio: wynik kompilacji, uruchomienia i obserwacja debuggera.
+- Rider: wynik kompilacji, uruchomienia i obserwacja debuggera.
+```
+
+Utwórz na GitHubie **puste** repozytorium, np. `warp-lab-ide-function`. Nie dodawaj przy
+tworzeniu README ani `.gitignore`, ponieważ oba pliki przygotujesz lokalnie. W terminalu
+otwartym w katalogu `IdeFunctionLab` sprawdź stan i opublikuj projekt:
+
+```text
+git init -b main
+git status
+git add .
+git status
+git commit -m "feat: add C# function calculator"
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
+git remote -v
+git push -u origin main
+```
+
+Zastąp `USERNAME` i `REPOSITORY` adresem własnego repozytorium. Przed commitem upewnij się,
+że Git pomija katalogi `bin/` i `obj/`, a README zawiera wyniki sprawdzenia we wszystkich
+trzech IDE. Po push otwórz repozytorium na GitHubie i potwierdź, że widzisz `Program.cs`,
+plik projektu, `.gitignore`, README oraz commit.
+
+### Do oddania
+
+- link do repozytorium GitHub i identyfikator commitu;
+- README z instrukcją uruchomienia i wynikami z VS Code, Visual Studio oraz Ridera;
+- potwierdzenie, że w każdym IDE program zwrócił `f(4) = 11`;
+- krótki opis wartości `value` i `result` zaobserwowanych podczas debugowania;
+- informacja o dodatkowym sprawdzeniu dla `x = -2`.
+
+### Checklista zadania
+
+- [ ] Ten sam projekt został otwarty w VS Code, Visual Studio i Riderze.
+- [ ] W każdym IDE projekt buduje się, uruchamia i zatrzymuje na breakpointach.
+- [ ] Wyniki dla `x = 4` i `x = -2` są zgodne z oczekiwaniami.
+- [ ] W README zapisano przebieg i rezultat pracy w każdym IDE.
+- [ ] Projekt oraz README zostały wypchnięte do własnego repozytorium GitHub.
+- [ ] W repozytorium nie ma katalogów `bin/`, `obj/`, haseł ani tokenów.
+
 ## Co oddać
 
 Przekaż prowadzącemu:
