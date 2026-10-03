@@ -16,8 +16,8 @@ Materiały do zajęć laboratoryjnych z przedmiotu Warsztat Programisty na PJATK
 - [Git: repozytoria, gałęzie i Pull Requesty](src/03-git/README.md)
 
 Materiały są prowadzone zadaniowo: student najpierw wykonuje krótki krok praktyczny,
-a następnie porównuje wynik z rozwiązaniem i checklistą jakości. Przykłady są celowo
-proste i korzystają z JavaScriptu lub C# tylko tam, gdzie potrzebne jest uruchamialne ćwiczenie.
+a następnie porównuje wynik z rozwiązaniem i checklistą jakości. Na zajęciach używamy
+C# i .NET; przykłady uzupełniają zajęcia z Podstaw programowania, nie zastępują ich.
 
 ## Licencja
 

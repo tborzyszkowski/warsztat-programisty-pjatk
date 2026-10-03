@@ -1,5 +1,9 @@
 # 01. Organizacja pracy programisty
 
+Na zajęciach korzystamy z C# i .NET. Ten moduł uzupełnia zajęcia z Podstaw programowania:
+zakłada znajomość omawianych tam podstaw składni i koncentruje się na środowisku pracy,
+organizacji projektu, kontroli zmian i jakości oddawanej pracy.
+
 ## Cel zajęć
 
 Po przejściu tego skryptu student potrafi:
@@ -20,8 +24,9 @@ krótkie omówienie z wykonaniem kolejnych kroków przez studentów.
 | --- | --- | --- |
 | 1. Repozytorium i konta | przygotowuje dostęp i wykonuje pierwszy przepływ pracy | [README tematu](01-repozytorium-i-konta/README.md) |
 | 2. Struktura i oddawanie | porządkuje pliki, opisuje pracę i przechodzi checklistę | [README tematu](02-struktura-materialow-i-oddawanie/README.md) |
-| 3. IDE i narzędzia | instaluje lub wybiera IDE, uruchamia kod, włącza formatowanie i linting | [README tematu](03-ide-i-konfiguracja/README.md) |
-| 4. Obliczenia i testy | implementuje algorytmy, dobiera przypadki testowe i analizuje pokrycie | [README tematu](04-obliczenia-i-testy/README.md) |
+| 3. IDE i narzędzia | przygotowuje VS Code, Visual Studio lub Rider i uruchamia projekt C#/.NET | [README tematu](03-ide-i-konfiguracja/README.md) |
+| 4. Obliczenia i testy | ćwiczy specyfikowanie i sprawdzanie prostych algorytmów w C# | [README tematu](04-obliczenia-i-testy/README.md) |
+| 5. Laboratorium: środowisko i Git | samodzielnie przechodzi od nowego projektu do Pull Requestu i rozwiązania konfliktu | [README laboratorium](05-laboratorium-srodowisko-i-git/README.md) |
 
 ## Jak pracować z materiałem
 
@@ -31,9 +36,8 @@ krótkie omówienie z wykonaniem kolejnych kroków przez studentów.
 4. Otwórz sekcję **Rozwiązanie i wyjaśnienie**.
 5. Na koniec przejdź checklistę i zapisz pytania do omówienia.
 
-W kodzie używamy prostych nazw i konstrukcji. JavaScript jest tylko wspólnym nośnikiem
-przykładów uruchamialnych lokalnie; najważniejsze są: przepływ pracy, sposób myślenia,
-warunki poprawności i umiejętność sprawdzenia wyniku.
+Kod przykładów uruchamiamy za pomocą .NET CLI lub jednego z omawianych IDE. Najważniejsze
+są: przepływ pracy, sposób myślenia, warunki poprawności i umiejętność sprawdzenia wyniku.
 
 ## Mapa materiału
 
@@ -43,8 +47,9 @@ flowchart LR
     B --> C[Struktura plików]
     C --> D[Oddanie pracy]
     D --> E[IDE i narzędzia]
-    E --> F[Algorytm]
+    E --> F[Algorytm w C#]
     F --> G[Testy i checklista]
+    G --> H[Laboratorium: Git i PR]
 ```
 
 Źródło diagramu: [diagram mapy zajęć](diagramy/mapa-sciezki.mmd).
