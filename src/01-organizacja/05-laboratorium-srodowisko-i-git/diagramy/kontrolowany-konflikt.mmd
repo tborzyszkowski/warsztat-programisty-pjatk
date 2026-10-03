@@ -1,0 +1,13 @@
+flowchart TD
+    Base((C1<br/>wspólna wersja README))
+    Base --> Author((C2<br/>feature: Autor: Student))
+    Base --> Team((C3<br/>main: Zespół: Warsztat Programisty))
+    Author --> Merge["git merge main<br/>uruchomione na feature"]
+    Team --> Merge
+    Merge --> Conflict["README.md nierozstrzygnięty<br/>git status: unmerged"]
+    Conflict --> Markers["Working tree pokazuje<br/>obie wersje i znaczniki"]
+    Markers --> Edit["Edytuj plik ręcznie<br/>zachowaj obie informacje"]
+    Edit --> Stage["git add README.md<br/>oznacza konflikt jako rozwiązany"]
+    Stage --> Commit((M<br/>commit scalający))
+    Commit --> Push["git push<br/>publikuje zmienioną gałąź"]
+    Push --> PR["Pull Request zawiera<br/>rozwiązanie do review"]

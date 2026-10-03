@@ -286,7 +286,31 @@ git status
 ```
 
 Git powinien zatrzymać scalanie i wskazać konflikt w `README.md`. Otwórz ten plik w IDE.
-Znaczniki konfliktu wyglądają podobnie do poniższego przykładu:
+Zmiana autora znajduje się już w commicie gałęzi `feature/readme-contact`, a zmiana zespołu
+w osobnym commicie gałęzi `main`. Obie gałęzie wyrosły z tej samej wcześniejszej wersji
+README i zmieniły ten sam fragment. Git zachowuje obie historie, ale nie zgaduje, jak
+połączyć treść — scalanie pozostaje w toku, dopóki nie zdecydujesz, jaka ma być jej
+ostateczna postać.
+
+```mermaid
+flowchart TD
+    Base((C1<br/>wspólna wersja README))
+    Base --> Author((C2<br/>feature: Autor: Student))
+    Base --> Team((C3<br/>main: Zespół: Warsztat Programisty))
+    Author --> Merge["git merge main<br/>uruchomione na feature"]
+    Team --> Merge
+    Merge --> Conflict["README.md nierozstrzygnięty<br/>git status: unmerged"]
+    Conflict --> Markers["Working tree pokazuje<br/>obie wersje i znaczniki"]
+    Markers --> Edit["Edytuj plik ręcznie<br/>zachowaj obie informacje"]
+    Edit --> Stage["git add README.md<br/>oznacza konflikt jako rozwiązany"]
+    Stage --> Commit((M<br/>commit scalający))
+    Commit --> Push["git push<br/>publikuje zmienioną gałąź"]
+    Push --> PR["Pull Request zawiera<br/>rozwiązanie do review"]
+```
+
+Źródło diagramu: [od konfliktu do scalenia](diagramy/kontrolowany-konflikt.mmd).
+
+Znaczniki w working tree wyglądają podobnie do poniższego przykładu:
 
 ```text
 <<<<<<< HEAD
@@ -296,8 +320,10 @@ Zespół: Warsztat Programisty
 >>>>>>> main
 ```
 
-`HEAD` oznacza tutaj wersję z bieżącej gałęzi funkcjonalnej, a druga strona pochodzi z `main`.
-Rozwiąż konflikt, zachowując obie informacje, na przykład:
+W tym konkretnym `git merge main`, `HEAD` oznacza wersję z bieżącej gałęzi
+`feature/readme-contact`, a sekcja po `=======` pochodzi z włączanej gałęzi `main`.
+Znaczniki są tymczasową pomocą w pliku — nie są treścią, którą należy zachować. Rozwiąż
+konflikt, zachowując obie informacje, na przykład:
 
 ```markdown
 ## Kontakt
@@ -305,8 +331,11 @@ Autor: Student
 Zespół: Warsztat Programisty
 ```
 
-Usuń wszystkie znaczniki `<<<<<<<`, `=======` i `>>>>>>>`. Następnie sprawdź wynik i
-dokończ scalanie:
+Usuń wszystkie znaczniki `<<<<<<<`, `=======` i `>>>>>>>`. Do czasu rozwiązania konfliktu
+Git nie utworzył commita scalającego: commity `C2` i `C3` nadal istnieją na swoich
+gałęziach. Po edycji `git add README.md` zapisuje rozwiązany plik w staging area i oznacza
+konflikt jako rozstrzygnięty; dopiero `git commit` tworzy commit scalający z obiema
+historiami jako rodzicami. Następnie `git push` publikuje go na gałęzi funkcjonalnej:
 
 ```text
 git diff
