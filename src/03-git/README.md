@@ -36,6 +36,7 @@ programowania. Git śledzi zmiany w plikach, a nie znaczenie kodu.
 | 2. Repozytorium zdalne | remote, fetch, pull, push, praca w parach | [README tematu](02-repozytorium-zdalne-i-review/README.md) |
 | 3. Gałęzie i konflikty | branch, merge, rebase, rozwiązywanie konfliktów | [README tematu](03-galezie-merge-rebase/README.md) |
 | 4. Pull Requesty | workflow PR, review, Issues i Projects | [README tematu](04-pull-requesty-issues-projects/README.md) |
+| 5. Dziwne sytuacje | naprawianie pushy, sekretów, historii i odzyskiwanie zmian | [README tematu](05-dziwne-sytuacje/README.md) |
 
 ## Zalecany model pracy
 
