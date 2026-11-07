@@ -14,10 +14,12 @@ Materiały do zajęć laboratoryjnych z przedmiotu Warsztat Programisty na PJATK
 - [Organizacja pracy programisty](src/01-organizacja/README.md)
 - [Debugowanie kodu i błędów wykonania](src/02-debug/README.md)
 - [Git: repozytoria, gałęzie i Pull Requesty](src/03-git/README.md)
+- [HTML, CSS i JavaScript: portfolio w sieci](src/04-html/README.md)
 
 Materiały są prowadzone zadaniowo: student najpierw wykonuje krótki krok praktyczny,
 a następnie porównuje wynik z rozwiązaniem i checklistą jakości. Na zajęciach używamy
-C# i .NET; przykłady uzupełniają zajęcia z Podstaw programowania, nie zastępują ich.
+C# i .NET oraz HTML, CSS i JavaScript; przykłady uzupełniają zajęcia z programowania,
+nie zastępują ich.
 
 ## Licencja
 
